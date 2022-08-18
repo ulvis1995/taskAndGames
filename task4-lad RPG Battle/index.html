@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RPG Battle</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Grenze+Gotisch:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="game-difficulty" id="difficulty-block">
+      <h2>𝕽𝕻𝕲 𝕭𝖆𝖙𝖙𝖑𝖊</h2>
+      <h3>Выберите сложность игры</h3>
+      <form class="game-difficulty-list" id="form">
+        <label>
+          <input type="radio" value="Легко" name="difficulty">Легко
+          <span></span>
+        </label>
+        <label>
+          <input type="radio" value="Средне" name="difficulty" checked>Средне
+          <span></span>
+        </label>
+        <label>
+          <input type="radio" value="Сложно" name="difficulty">Сложно
+          <span></span>
+        </label>
+      </form>
+      <button id="btn-start" type="sumbit">Начать игру</button>
+    </div>
+    <div class="game-block unvisible" id="game-block">
+      <div class="player">
+        <div class="player-information">
+          <h3>Лютый</h3>
+          <img class="player-img" src="./img/monster.jpg">
+          <div class="player-health">
+            <p id="enemy-health"></p>
+            <p class="health-pic" id="enemy-health-pic"></p>
+          </div>
+        </div>
+        <div class="player-moves">
+          <div class="player-move-item">
+            <h3 class="move-name">Удар когтистой лапой</h3>
+            <div><p>Физический урон: </p><p>3</p></div>
+            <div><p>Магический урон: </p><p>0</p></div>
+            <div><p>Физическая броня: </p><p>20</p></div>
+            <div><p>Магическая броня: </p><p>20</p></div>
+            <div><p>Ходов до активации: </p><p id="enemy-move-1"></p></div>
+          </div>
+          <div class="player-move-item">
+            <h3 class="move-name">Огненное дыхание</h3>
+            <div><p>Физический урон: </p><p>0</p></div>
+            <div><p>Магический урон: </p><p>4</p></div>
+            <div><p>Физическая броня: </p><p>0</p></div>
+            <div><p>Магическая броня: </p><p>0</p></div>
+            <div><p>Ходов до активации: </p><p id="enemy-move-2"></p></div>
+          </div>
+          <div class="player-move-item">
+            <h3 class="move-name">Удар хвостом</h3>
+            <div><p>Физический урон: </p><p>2</p></div>
+            <div><p>Магический урон: </p><p>0</p></div>
+            <div><p>Физическая броня: </p><p>50</p></div>
+            <div><p>Магическая броня: </p><p>0</p></div>
+            <div><p>Ходов до активации: </p><p id="enemy-move-3"></p></div>
+          </div>
+        </div>
+      </div>
+      <div class="battle-block">
+        <div class="battle-buttons">
+          <button id="enemy-move">Лютый, ходи!</button>
+          <button id="button-fight">Биться</button>
+        </div>
+        <div class="battle-move-list">
+          <div class="battle-block-item">
+            <h3>Ход Лютого</h3>
+            <div class="player-move-item">
+              <h4 class="move-name" id="enemy-move-name"></h4>
+              <div><p>Физический урон: </p><p id="enemy-physicalDmg"></p></div>
+              <div><p>Магический урон: </p><p id="enemy-magicDmg"></p></div>
+              <div><p>Физическая броня: </p><p id="enemy-physicArmorPercents"></p></div>
+              <div><p>Магическая броня: </p><p id="enemy-magicArmorPercents"></p></div>
+            </div>
+          </div>
+          <div class="battle-block-item">
+            <h3>Ход Евстафия</h3>
+            <div class="player-move-item">
+              <h4 class="move-name" id="player-move-name"></h4>
+              <div><p>Физический урон: </p><p id="player-physicalDmg"></p></div>
+              <div><p>Магический урон: </p><p id="player-magicDmg"></p></div>
+              <div><p>Физическая броня: </p><p id="player-physicArmorPercents"></p></div>
+              <div><p>Магическая броня: </p><p id="player-magicArmorPercents"></p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="player">
+        <div class="player-information">
+          <h3>Евстафий</h3>
+          <img class="player-img" src="./img/monastic.JPG">
+          <div class="player-health">
+            <p id="player-health"></p>
+            <p class="health-pic" id="player-health-pic"></p>
+          </div>
+        </div>
+        <div class="player-moves" id="player-moves">
+          <div class="player-move-item">
+            <h3 class="move-name">Удар боевым кадилом</h3>
+            <div><p>Физический урон: </p><p>2</p></div>
+            <div><p>Магический урон: </p><p>0</p></div>
+            <div><p>Физическая броня: </p><p>0</p></div>
+            <div><p>Магическая броня: </p><p>50</p></div>
+            <div><p>Ходов до активации: </p><p id="player-move-1"></p></div>
+            <button id="move-1">Ходить</button>
+          </div>
+          <div class="player-move-item">
+            <h3 class="move-name">Вертушка левой пяткой</h3>
+            <div><p>Физический урон: </p><p>4</p></div>
+            <div><p>Магический урон: </p><p>0</p></div>
+            <div><p>Физическая броня: </p><p>0</p></div>
+            <div><p>Магическая броня: </p><p>0</p></div>
+            <div><p>Ходов до активации: </p><p id="player-move-2"></p></div>
+            <button id="move-2">Ходить</button>
+          </div>
+          <div class="player-move-item">
+            <h3 class="move-name">Каноничный фаербол</h3>
+            <div><p>Физический урон: </p><p>0</p></div>
+            <div><p>Магический урон: </p><p>5</p></div>
+            <div><p>Физическая броня: </p><p>0</p></div>
+            <div><p>Магическая броня: </p><p>0</p></div>
+            <div><p>Ходов до активации: </p><p id="player-move-3"></p></div>
+            <button id="move-3">Ходить</button>
+          </div>
+          <div class="player-move-item">
+            <h3 class="move-name">Магический блок</h3>
+            <div><p>Физический урон: </p><p>0</p></div>
+            <div><p>Магический урон: </p><p>0</p></div>
+            <div><p>Физическая броня: </p><p>100</p></div>
+            <div><p>Магическая броня: </p><p>100</p></div>
+            <div><p>Ходов до активации: </p><p id="player-move-4"></p></div>
+            <button id="move-4">Ходить</button>
+          </div>
+        </div>
+      </div>
+      <div class="end-block unvisible" id="end-block">
+        <div class="end-block-text">
+          <p>Это была славная битва!</p>
+          <p id="end-frace"></p>
+        </div>
+        <button id="end-btn"></button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="index.js"></script>
+</body>
+</html>

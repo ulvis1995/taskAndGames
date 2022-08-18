@@ -1,0 +1,123 @@
+body {
+  background: rgb(188, 245, 203);
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+h2, h3, p {
+  margin: 0;
+}
+
+span {
+  font-size: smaller;
+  font-style: italic;
+}
+
+.rules, .game, .game-difficulty {
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  background: rgb(225, 245, 230);
+  padding: 10px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.rules ol {
+  text-align: left;
+}
+
+#btn-rules-to-open {
+  margin-top: 10px;
+}
+
+.game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 300px;
+}
+
+.rules h2{
+  text-align: center;
+}
+
+.game-number {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.game-number p {
+  margin: 0;
+  margin-right: 10px;
+}
+
+.game-number span {
+  line-height: 0;
+  font-size: 0;
+}
+
+.game-answer-inp {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 200px;
+  margin-bottom: 4px;
+}
+
+.game-answer-inp input {
+  min-width: 100px;
+  flex-grow: 1;
+  margin-right: 4px;
+}
+
+.game-warning p {
+  margin: 0;
+  margin-bottom: 5px;
+  padding-left: 5px;
+  font-size: 10px;
+  line-height: 14px;
+  color: red;
+}
+
+.game-try-item {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.game-try-item p {
+  margin: 0;
+  padding: 4px;
+  border: 2px solid rgb(148, 243, 213);
+}
+
+.game-difficulty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+}
+
+.game-difficulty-list {
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+}
+
+.game-result {
+  width: 200px;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.unvisible {
+  display: none;
+}
+
+.active {
+  display: block;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&family=Titillium+Web:ital@0;1&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="rules unvisible" id="rules-open">
+      <h2>Правила игры "Быки и коровы"</h2>
+      <ol>
+        <li>Компьютер загадывает число из нескольких различающихся цифр (от 3 до 6). 
+          Необходимо угадать это число.
+        </li>
+        <li>После каждой попытки компьютер сообщает количество совпавших 
+          цифр стоящих не на своих местах, а также количество правильных 
+          цифр на своих местах, а именно - количество "быков" и "коров":<br>
+          <span>
+            <strong>"Быки"</strong> - это те цифры вашего числа, расположение которых поразрядно совпадает с цифрами загаданного числа;<br>
+          <strong>"Коровы"</strong> - это те цифры вашего числа, которые присутствуют в загаданном числе, но находятся в другом месте, (в другом разряде, на другой позиции).
+          </span>
+        </li>
+        <p>
+          <h3>Пример:</h3>
+          <span>
+            Загадано число "2308".<br>
+            В числе присутствуют цифры - 2, 3, 0, 8;<br>
+            На ваши попытки его угадать, компьютер будет отвечать так:<br>
+            1. "1234" - 0б, 2к ("коровы" цифры 2 и 3, так как они присутствуют в загаданном числе, но находятся не на своих местах);<br>
+            2. "5678" - 1б, 0к ("бык" это цифра 8, находится на 4-й позиции, т.е. на месте);<br>
+            3. "2380" - 2б, 2к ( 2,3 - быки, 8,0 - коровы, 2 и 3 на местах, 8,0 не на местах ).<br>
+            и т.д.
+          </span> 
+        </p>
+      </ol> 
+      <button id="btn-rules-to-close" type="sumbit">Скрыть правила</button>
+    </div> 
+    <div class="rules-closed rules" id="rules-closed">
+      <h2>Правила игры "Быки и коровы"</h2>
+      <button id="btn-rules-to-open" type="sumbit">Показать правила</button>
+    </div>
+    <div class="game-difficulty" id="difficulty-block">
+      <h3>Выберите сложность игры</h3>
+      <form class="game-difficulty-list" id="form">
+        <label>
+          <input type="radio" value="3" name="difficulty">3-значное число
+        </label>
+        <label>
+          <input type="radio" value="4" name="difficulty" checked>4-значное число
+        </label>
+        <label>
+          <input type="radio" value="5" name="difficulty">5-значное число
+        </label>
+        <label>
+          <input type="radio" value="6" name="difficulty">6-значное число
+        </label>
+      </form>
+      <button id="btn-start" type="sumbit">Начать игру</button>
+    </div>
+    <div class="game unvisible" id="game-block">
+      <div class="game-number" id="game-hidden-number">
+        <p>Компьютер загадал число:</p>
+        <span id="X-amount"></span>
+      </div>
+      <div class="game-answer" id="game-answer">
+        <div class="game-answer-inp">
+          <input type="number" name="user-game">
+          <button id="btn-try-to-guess" type="submit">Попытка</button>
+        </div>
+      </div>
+      <div id="game-warning" class="game-warning"></div>
+      <div class="game-try" id="try-to-guess-block">        
+      </div>
+      <div id="game-result" class="game-result unvisible">
+        <p id="you-result"></p>
+        <p id="win-score"></p>
+        <button id="btn-new-game">Новая игра</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="index.js"></script>
+</body>
+</html>
